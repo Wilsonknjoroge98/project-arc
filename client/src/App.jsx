@@ -1,45 +1,30 @@
-import Stack from '@mui/material/Stack';
-import SendIcon from '@mui/icons-material/Send';
-import Button from '@mui/material/Button';
-
-import Capacity from './components/Capacity';
 import NavBar from './components/NavBar';
-import Hero from './components/Hero';
-import Team from './components/Team';
-import Works from './components/Works';
-import RequestForm from './components/RequestForm';
+import Stack from '@mui/material/Stack';
+import { Outlet } from 'react-router-dom';
+
+import AuthDialog from './components/AuthDialog';
 import { useState } from 'react';
 
 import './App.css';
 
 function App() {
-  const [open, setOpen] = useState(false);
+  const [authOpen, setAuthOpen] = useState(false);
 
   return (
     <>
-      <RequestForm open={open} />
-      <NavBar />
+      <AuthDialog authOpen={authOpen} setAuthOpen={setAuthOpen} />
+
       <Stack
+        spacing={2}
+        width='100%'
         sx={{
           minHeight: '100vh',
           flexGrow: 1,
-          p: 5,
-          justifyContent: 'center',
-          flexDirection: 'row',
           bgcolor: '#EDF2FB',
         }}
       >
-        <Stack spacing={20} maxWidth='xl' flexGrow={1} mt={5}>
-          <Hero setOpen={setOpen} />
-          <Works />
-          <Capacity />
-          <Team />
-          <Stack alignItems='center'>
-            <Button variant='contained' endIcon={<SendIcon />} onClick={() => setOpen(true)}>
-              Create Request
-            </Button>
-          </Stack>
-        </Stack>
+        <NavBar setAuthOpen={setAuthOpen} />
+        <Outlet />
       </Stack>
     </>
   );

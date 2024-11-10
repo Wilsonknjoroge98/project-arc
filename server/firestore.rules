@@ -1,0 +1,9 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /request/{request} {
+      allow read: if request.name != null && request.email != null && request.description != null
+    }
+  }
+}

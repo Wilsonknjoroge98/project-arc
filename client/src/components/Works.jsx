@@ -33,7 +33,7 @@ const Works = () => {
   ];
 
   return (
-    <Stack alignItems='center' spacing={3} width='100%'>
+    <Stack alignItems='center' spacing={3}>
       <Typography alignSelf='start' variant='h5' sx={{ opacity: 0.5 }}>
         Works /
       </Typography>

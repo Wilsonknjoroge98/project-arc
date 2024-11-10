@@ -3,23 +3,37 @@ import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 import Divider from '@mui/material/Divider';
 import CheckIcon from '@mui/icons-material/Check';
+import useMediaQuery from '@mui/material/useMediaQuery';
 
 const Capacity = () => {
+  const isSmallScreen = useMediaQuery((theme) => theme.breakpoints.down('md'));
   return (
     <Stack alignItems='center' spacing={3}>
       <Typography variant='h5' alignSelf='start' sx={{ opacity: 0.5 }}>
         Capacity /
       </Typography>
+
       <Stack direction='column' spacing={5}>
-        <Stack direction='row' alignItems='center' spacing={20}>
-          <Box
-            bgcolor='#ABC4FF'
-            component='img'
-            src='./software.svg'
-            minHeight={300}
-            p={5}
-            borderRadius={2}
-          />
+        <Stack
+          direction={isSmallScreen ? 'column' : 'row'}
+          alignItems='center'
+          spacing={isSmallScreen ? 5 : 20}
+        >
+          {!isSmallScreen && (
+            <Box
+              sx={{
+                backgroundImage: 'url(./waves.svg)',
+                backgroundRepeat: 'no-repeat',
+                backgroundPosition: 'bottom',
+                backgroundSize: 'cover',
+              }}
+              component='img'
+              src='./software.svg'
+              p={5}
+              borderRadius={2}
+            />
+          )}
+
           <Stack spacing={2}>
             <Typography variant='h5'>Software Development</Typography>
             <Stack>
@@ -37,11 +51,29 @@ const Capacity = () => {
               </Stack>
             </Stack>
           </Stack>
+          {isSmallScreen && (
+            <Box
+              sx={{
+                backgroundImage: 'url(./waves.svg)',
+                backgroundRepeat: 'no-repeat',
+                backgroundPosition: 'bottom',
+                backgroundSize: 'cover',
+              }}
+              component='img'
+              src='./software.svg'
+              p={5}
+              borderRadius={2}
+            />
+          )}
         </Stack>
 
         <Divider flexItem />
 
-        <Stack direction='row' alignItems='center' spacing={20}>
+        <Stack
+          direction={isSmallScreen ? 'column' : 'row'}
+          alignItems='center'
+          spacing={isSmallScreen ? 5 : 20}
+        >
           <Stack spacing={2}>
             <Typography variant='h5'>Mechanical Engineering</Typography>
             <Stack>
@@ -60,10 +92,14 @@ const Capacity = () => {
             </Stack>
           </Stack>
           <Box
+            sx={{
+              backgroundImage: 'url(./waves.svg)',
+              backgroundRepeat: 'no-repeat',
+              backgroundPosition: 'bottom',
+              backgroundSize: 'cover',
+            }}
             component='img'
-            bgcolor='#ABC4FF'
             src='./hardware.svg'
-            minHeight={300}
             p={5}
             borderRadius={2}
           />

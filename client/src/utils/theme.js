@@ -11,7 +11,7 @@ const theme = createTheme({
     },
     background: {
       default: '#EDF2FB',
-      paper: '#E2EAFC',
+      paper: '#F9FAFC',
     },
     text: {
       primary: '#2A2D34',
@@ -36,7 +36,7 @@ const theme = createTheme({
     h1: {
       fontFamily: 'Poppins, sans-serif',
       fontWeight: 700,
-      fontSize: '3rem',
+      // fontSize: '3rem',
       lineHeight: 1.2,
     },
     h2: {

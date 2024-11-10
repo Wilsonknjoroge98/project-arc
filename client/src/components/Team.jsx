@@ -2,8 +2,11 @@ import Avatar from '@mui/material/Avatar';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 import Divider from '@mui/material/Divider';
+import useMediaQuery from '@mui/material/useMediaQuery';
 
 const Team = () => {
+  const isSmallScreen = useMediaQuery((theme) => theme.breakpoints.down('md'));
+
   const team = [
     {
       name: 'Wilson Kamau',
@@ -23,7 +26,7 @@ const Team = () => {
       <Typography alignSelf='start' variant='h5' sx={{ opacity: 0.5 }}>
         Team /
       </Typography>
-      <Stack direction='row' spacing={10}>
+      <Stack direction={isSmallScreen ? 'column' : 'row'} spacing={isSmallScreen ? 5 : 10}>
         {team.map((member, index) => (
           <>
             <Stack spacing={1} key={member.name} direction='column' alignItems='center'>
@@ -37,7 +40,9 @@ const Team = () => {
                 <Typography variant='body1'>{member.title}</Typography>
               </Stack>
             </Stack>
-            {index != 2 && <Divider orientation='vertical' flexItem />}
+            {index != 2 && (
+              <Divider orientation={isSmallScreen ? 'horizontal' : 'vertical'} flexItem />
+            )}
           </>
         ))}
       </Stack>
