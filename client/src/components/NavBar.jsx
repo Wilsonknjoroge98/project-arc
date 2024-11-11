@@ -1,7 +1,6 @@
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import Stack from '@mui/material/Stack';
-import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { styled } from '@mui/material/styles';
@@ -44,8 +43,8 @@ const NavBar = ({ setAuthOpen }) => {
         >
           <Stack sx={{ flexGrow: 1 }} maxWidth='xl'>
             <Stack direction='row' spacing={2}>
-              <Typography variant='h6' color='primary' sx={{ fontWeight: 300 }}>
-                PROJECT ARC - EUCOM
+              <Typography variant='h6' color='primary' sx={{ fontWeight: 275 }}>
+                PROJECT ARC | EUCOM
               </Typography>
               <Stack flexGrow={1} direction='row' justifyContent='flex-end'>
                 <Button onClick={handleAuth}>

@@ -31,8 +31,8 @@ const Team = () => {
           <>
             <Stack spacing={1} key={member.name} direction='column' alignItems='center'>
               <Avatar
-                sx={{ width: 100, height: 100 }}
-                src={`./${member.name}.jpg`}
+                sx={{ width: 150, height: 150 }}
+                src={`./${member.name}.png`}
                 alt={member.name}
               />
               <Stack spacing={-1}>
